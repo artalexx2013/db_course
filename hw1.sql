@@ -13,13 +13,13 @@ SELECT * FROM city WHERE Population > 5000000;
 -- 7.	вывести информацию о конкретном городе - "Лондон" из таблицы city 
 SELECT * FROM city WHERE Name = 'London';
 -- 8.	узнать все официальные языки, где процент говорящих выше 80 % из таблицы countrylanguage 
-SELECT * FROM countrylanguage WHERE Percentage > 80;
+SELECT * FROM countrylanguage WHERE Percentage > 80 AND IsOfficial = 'T';
 -- 9.узнать все города из Австралии или из России из таблицы city 
 SELECT * FROM city WHERE CountryCode = 'RUS' OR CountryCode = 'AUS';
 -- 10.	узнать все города, которые НЕ находятся в Китае из таблицы city 
 SELECT * FROM city WHERE NOT CountryCode = 'CHN';
 -- 11.	узнать данные, где язык = Английский или код страны НЕ “CAN” и процент говорящих НИ меньше 50 из таблицы countrylanguage 
-SELECT * FROM countrylanguage WHERE Language = 'English' OR NOT CountryCode = 'CAN' AND Percentage >= 50;
+SELECT * FROM countrylanguage WHERE (Language = 'English' OR NOT CountryCode = 'CAN') AND Percentage >= 50;
 -- 12.	получить данные только определенных языков: Русский и Английский из таблицы countrylanguage 
 SELECT * FROM countrylanguage WHERE Language IN ('English', 'Russian');
 -- 13.	получить все города, населения которых от 1 000 000 до 5 000 000 из таблицы city 
